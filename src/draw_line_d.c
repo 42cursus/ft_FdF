@@ -18,13 +18,13 @@ void sub_draw_line_d(t_fdf_struct *fdf,int x,int y,int max_x,int max_y,int color
 	int colour1_shift2;
 	int color;
 	int curr;
-	int increment;
+	int neg;
 
-	increment = (max_x >= x) ? 1 : -1;
+	neg = (max_x >= x) ? 1 : -1;
 	colour1_shift1 = color1 >> 0x10 & 0xff;
 	colour1_shift2 = color1 >> 8 & 0xff;
 	curr = x;
-	while (curr * increment <= max_x * increment) {
+	while (curr * neg <= max_x * neg) {
 		color = (colour1_shift1 + (int)((curr - x) * ((color2 >> 0x10 & 0xffU) - colour1_shift1)) / (max_x - x) & 0xffU) * 0x10000 +
 				(colour1_shift2 + (int)((curr - x) * ((color2 >> 8 & 0xffU) - colour1_shift2)) / (max_x - x) & 0xffU) * 0x100 +
 				((color1 & 0xffU) + (int)((curr - x) * ((color2 & 0xffU) - (color1 & 0xffU))) / (max_x - x) & 0xff);
@@ -34,7 +34,7 @@ void sub_draw_line_d(t_fdf_struct *fdf,int x,int y,int max_x,int max_y,int color
 		else {
 			mlx_pixel_put(fdf->mlx_app,fdf->main_win,curr,y + ((max_y - y) * (curr - x)) / (max_x - x),color);
 		}
-		curr = increment + curr;
+		curr = neg + curr;
 	}
 }
 

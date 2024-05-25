@@ -11,9 +11,13 @@
 # **************************************************************************** #
 
 FdF
-resources/
 !resources/maps.zip
 !resources/Ghidra_disassemler.png
+resources/
+lib/minilibx-linux/
+lib/minilibx/
+lib/sources.tgz
+
 gdb.txt
 replace-git-emails.sh
 

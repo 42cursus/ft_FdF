@@ -37,6 +37,7 @@ SRC_DIR			= src
 OBJ_DIR			= $(BUILD_DIR)/obj
 
 SRC_FS	 		:= main.c utils.c load_data.c \
+					draw_line.c \
 					draw_line_d.c \
 					data_convert.c \
 					my_str_to_wordtab.c \
@@ -63,8 +64,8 @@ test: $(NAME)
 		@printf '\033[36m%s\033[0m\n' 'this is a test'
 #		@rm -rf $(TEST_MAPS)
 #		@cd resources && unzip maps.zip
-		./FdF $(TEST_MAPS)/elem2.fdf || true
-		./FdF $(TEST_MAPS)/elem-col.fdf || true
+#		./FdF $(TEST_MAPS)/elem2.fdf || true
+#		./FdF $(TEST_MAPS)/elem-col.fdf || true
 		./FdF $(TEST_MAPS)/t1.fdf || true
 		./FdF $(TEST_MAPS)/t1.fdf 9 2|| true
 #		./FdF $(TEST_MAPS)/t2.fdf || true
